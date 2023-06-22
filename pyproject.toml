@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "zhipusdk"
+version = "0.1.0"
+description = "this is a improved version of the official SDK (zhipusdk)."
+authors = ["theocheng <zlz_gty@foxmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyjwt = "^2.7.0"
+requests = "^2.31.0"
+cachetools = "^5.3.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
