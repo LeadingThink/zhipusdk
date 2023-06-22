@@ -23,7 +23,7 @@
 在 `sse_client.py` 的基础上新建一个 `sse_client_for_130.py` ，并在其中添加代码，根据模型返回的
 ` ``` `(三反引号)，来添加换行，在`奇数`的`前面`添加两个换行，在`偶数`的`后面`添加两个换行。
 
-修改 `zhipusdk/model_api/api.py`，让 6b 的模型走用 原先的 `sse_client.py`； 让 130b 的模型走新的 `sse_client_for_130b.py`；以实现两不干扰。
+修改 `zhipusdk/model_api/api.py`，让 6b 的模型走原先的 `sse_client.py`； 让 130b 的模型走新的 `sse_client_for_130b.py`；以实现两不干扰。( 6b 模型的输出中不会缺少换行。)
 
 ## 3. 其他
 
@@ -32,4 +32,4 @@
 
 # 二、License
 
-`zhipuai` 采用的是 `MIT` 许可证，详见 [PyPI](https://pypi.org/project/zhipuai/#files)。但在软件包中未发现版权声明文件，故作此说明。本仓库未包含原始的 `MIT` 许可文件，完全是因为这个原因。
+`zhipuai` 采用的是 `MIT` 许可证，详见 [PyPI](https://pypi.org/project/zhipuai/#files)。但在软件包中未发现版权声明文件，故作此说明。本仓库未包含原始的 `MIT` 许可文件，完全是这个原因。
