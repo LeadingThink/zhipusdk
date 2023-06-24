@@ -5,7 +5,7 @@ import zhipusdk
 async def async_request_glm(prompt: str):
     print(prompt)
     response = zhipusdk.model_api.sse_invoke(
-        model="chatglm_6b",
+        model="chatglm_130b",
         prompt=prompt,
         temperature=0.95,
         top_p=0.7,
@@ -15,4 +15,8 @@ async def async_request_glm(prompt: str):
         print(event.data, end="")
 
 
-asyncio.run(async_request_glm("请用Python写一个 hello world"))
+prompt = """
+请用 Java 写一个 hello world， 我已经配置了环境
+"""
+
+asyncio.run(async_request_glm(prompt))

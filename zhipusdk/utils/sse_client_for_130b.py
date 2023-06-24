@@ -69,6 +69,7 @@ class SSEClientFor130B(object):
 
                 if len(data) > 1:
                     value: str = data[1]
+
                     # 如果包含 ``` 则加1
                     if value.startswith("```"):
                         c.add_one()
@@ -76,7 +77,10 @@ class SSEClientFor130B(object):
                         if where == "before":
                             value = "\n\n" + value
                         elif where == "after":
-                            value = value + "\n\n"
+                            # 当写类似 Java 代码的时候， 在代码块的最后三个
+                            # 反引号会和 `}` 连在一起，造成代码渲染的问题
+                            # 故在 value 前面加一个空格，将二者分开
+                            value = "\n" + value + "\n\n"
                         else:
                             pass
 
