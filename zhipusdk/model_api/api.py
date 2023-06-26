@@ -46,7 +46,15 @@ class ModelAPI:
         data = stream(url, cls._generate_token(), kwargs, zhipusdk.api_timeout_seconds)
 
         if model == "chatglm_130b":
-            return SSEClientFor130B(data)
+            try:
+                incremental = kwargs["incremental"]
+                if incremental:
+                    return SSEClientFor130B(data)
+                else:
+                    # 如果全量返回，则不需要进行额外处理
+                    return SSEClient(data)
+            except:
+                return SSEClientFor130B(data)
         else:
             return SSEClient(data)
 
