@@ -9,7 +9,7 @@ async def async_request_glm(prompt: str):
         prompt=prompt,
         temperature=0.95,
         top_p=0.7,
-        incremental=False,
+        incremental=True,
     )
     for event in response.events():
         print(event.data, end="")
